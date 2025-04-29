@@ -1,0 +1,30 @@
+{
+  "name": "onchainkit-dex-swap-template",
+  "version": "1.0.0",
+  "description": "A simple DEX swap frontend built using Coinbase's OnchainKit and Base blockchain.   Easily customizable to create your own token swap app.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@coinbase/onchainkit": "^0.38.8",
+    "ethers": "^6.13.7",
+    "next": "^15.3.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3"
+  }
+}
