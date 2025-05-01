@@ -5,12 +5,14 @@ import SwapForm from "@/components/SwapForm";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-10 bg-black text-white">
-      <h1 className="text-3xl font-bold mb-6">Base DEX Swap</h1>
-      <Wallet />
-      <div className="mt-10 w-full max-w-md">
-        <SwapForm />
+    <main className="min-h-screen bg-[#0a0b0d] text-white flex flex-col items-center justify-center px-4 py-12">
+      <h1 className="text-4xl font-bold mb-6 text-center">Swap anytime,<br />anywhere.</h1>
+
+      <div className="mb-6">
+        <Wallet />
       </div>
+
+      <SwapForm />
     </main>
   );
 }

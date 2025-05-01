@@ -4,19 +4,22 @@ import { useState } from "react";
 import { useAccount, useWalletClient } from "wagmi";
 import { ethers } from "ethers";
 import { Token } from "@/constants/tokens";
+import toast from "react-hot-toast";
 
 // Uniswap V2 router on Base
 const UNISWAP_V2_ROUTER = "0x327Df1E6de05895d2ab08513aaDD9313Fe505d86";
 
 const ROUTER_ABI = [
   "function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)",
+  "function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts)",
 ];
 
 type Props = {
     tokenIn: Token;
     tokenOut: Token;
     amount: string;
-    slippage: string;  
+    slippage: string; 
+    onSuccess?: () => void; 
   };
   
   
@@ -50,10 +53,10 @@ export default function SwapButton({ tokenIn, tokenOut, amount }: Props) {
       );
 
       await tx.wait();
-      alert("Swap successful!");
+      toast.success("Swapped successfully!");
     } catch (err) {
       console.error(err);
-      alert("Swap failed");
+      toast.error("Swap failed");
     } finally {
       setLoading(false);
     }

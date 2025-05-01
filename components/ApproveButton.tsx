@@ -5,6 +5,8 @@ import { useAccount, useWalletClient } from "wagmi";
 import { Token } from "@/constants/tokens";
 import { ethers } from "ethers";
 import { Web3Provider } from "@ethersproject/providers";
+import toast from "react-hot-toast";
+
 
 // Uniswap V2 router on Base mainnet
 const UNISWAP_V2_ROUTER = "0x327Df1E6de05895d2ab08513aaDD9313Fe505d86";
@@ -45,10 +47,10 @@ export default function ApproveButton({ token, amount, onSuccess }: Props) {
       await tx.wait();
 
       if (onSuccess) onSuccess();
-      alert("Approved successfully");
+      toast.success("Approved successfully!");
     } catch (err) {
       console.error(err);
-      alert("Approval failed");
+      toast.error("Approval failed");
     } finally {
       setLoading(false);
     }

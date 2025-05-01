@@ -1,20 +1,32 @@
-// components/AmountInput.tsx
-
 type Props = {
     value: string;
     onChange: (val: string) => void;
     label: string;
+    maxAmount?: string;
+    onMaxClick?: () => void;
   };
   
-  export default function AmountInput({ value, onChange, label }: Props) {
+  export default function AmountInput({ value, onChange, label, maxAmount, onMaxClick }: Props) {
     return (
-      <div className="mb-4">
-        <label className="block text-sm mb-1">{label}</label>
+      <div className="w-full bg-white/5 backdrop-blur rounded-xl border border-white/10 p-4 space-y-2">
+        <div className="flex justify-between items-center">
+          <label className="text-sm text-gray-300">{label}</label>
+          {maxAmount && onMaxClick && (
+            <button
+              type="button"
+              onClick={onMaxClick}
+              className="text-xs text-purple-400 hover:underline"
+            >
+              MAX
+            </button>
+          )}
+        </div>
         <input
           type="number"
+          inputMode="decimal"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full p-2 bg-gray-800 rounded border border-gray-600 text-white"
+          className="w-full bg-transparent text-2xl font-semibold text-white placeholder-gray-500 outline-none"
           placeholder="0.0"
           min="0"
         />
